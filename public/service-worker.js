@@ -2,7 +2,7 @@ const FILES_TO_CACHE = [
   "/",
   "/index.html",
   "db.js",
-  "favicon.ico",
+
   "index.js",
   "manifest.webmanifest",
   "service-worker.js",
@@ -18,11 +18,11 @@ self.addEventListener("install", function (event) {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then((result) => {
+      .then((cache) => {
         console.log("Files have been pre-cached successfully!");
-        caches
+        cache
           .addAll(FILES_TO_CACHE)
-          .THEN((RESULT) => {
+          .then((result) => {
             console.log("the result of the add all is", result);
           })
           .catch((err) => {
